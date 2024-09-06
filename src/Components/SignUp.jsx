@@ -1,12 +1,31 @@
-import { useState } from "react";
+import { useReducer } from "react";
 import styles from "./signUp.module.css";
+const Actions = {
+  setName: "set_Name",
+  setEmail: "set_Email",
+  setGender: "set_Gender",
+};
+const previousState = {
+  name: { firstName: "", lastName: "" },
+  email: { emailAddress: "", password: "" },
+  gender: "",
+};
+const reducer = (state, action) => {
+  switch (action.type) {
+    case Actions.setName:
+      return { ...state, name: action.payload };
+    case Actions.setEmail:
+      return { ...state, email: action.payload };
+    case Actions.setGender:
+      return { ...state, gender: action.payload };
+  }
+};
 
 export default function SignUp({ onBack }) {
-  const [name, setName] = useState({ firstName: "", lastName: "" });
-  const [email, setEmail] = useState({ emailAddress: "", password: "" });
-  const [gender, setGender] = useState("");
+  const [state, dispatch] = useReducer(reducer, previousState);
+
   const handleGenderChange = (selectedGender) => {
-    setGender(selectedGender);
+    dispatch({ type: Actions.setGender, payload: selectedGender });
   };
 
   return (
@@ -18,7 +37,7 @@ export default function SignUp({ onBack }) {
             <p>It's quick and easy.</p>
           </div>
           <div>
-            <button className={styles.closeBtn} onClick={onBack} type="submit">
+            <button className={styles.closeBtn} onClick={onBack} type="button">
               ✖
             </button>
           </div>
@@ -29,16 +48,26 @@ export default function SignUp({ onBack }) {
           <form className={styles.Name}>
             <input
               className={styles.firstName}
-              onChange={(e) => setName({ ...name, firstName: e.target.value })}
-              value={name.firstName}
+              onChange={(e) =>
+                dispatch({
+                  type: Actions.setName,
+                  payload: { ...state.name, firstName: e.target.value },
+                })
+              }
+              value={state.name.firstName}
               type="text"
               placeholder="First Name"
             />
             <input
               className={styles.surname}
-              onChange={(e) => setName({ ...name, lastName: e.target.value })}
+              onChange={(e) =>
+                dispatch({
+                  type: Actions.setName,
+                  payload: { ...state.name, lastName: e.target.value },
+                })
+              }
               type="text"
-              value={name.lastName}
+              value={state.name.lastName}
               id=""
               placeholder="Surname"
             />
@@ -47,19 +76,27 @@ export default function SignUp({ onBack }) {
             <input
               className={styles.email}
               onChange={(e) =>
-                setEmail({ ...email, emailAddress: e.target.value })
+                dispatch({
+                  type: Actions.setEmail,
+                  payload: { ...state.email, emailAddress: e.target.value },
+                })
               }
               type="text"
-              value={email.emailAddress}
+              value={state.email.emailAddress}
               placeholder="Mobile number or Email address"
             />
           </form>
           <form>
             <input
               className={styles.password}
-              onChange={(e) => setEmail({ ...email, password: e.target.value })}
+              onChange={(e) =>
+                dispatch({
+                  type: Actions.setEmail,
+                  payload: { ...state.email, emailAddress: e.target.value },
+                })
+              }
               type="password"
-              value={email.password}
+              value={state.email.password}
               placeholder="New Password"
             />
             <form>
@@ -75,7 +112,8 @@ export default function SignUp({ onBack }) {
                 <input
                   onChange={() => handleGenderChange("Female")}
                   type="radio"
-                  name="options"
+                  name="gender"
+                  checked={state.gender === "Female"}
                 />
               </label>
               <label>
@@ -83,7 +121,8 @@ export default function SignUp({ onBack }) {
                 <input
                   onChange={() => handleGenderChange("Male")}
                   type="radio"
-                  name="options"
+                  name="gender"
+                  checked={state.gender === "Male"}
                 />
               </label>
               <label>
@@ -91,11 +130,12 @@ export default function SignUp({ onBack }) {
                 <input
                   onChange={() => handleGenderChange("Custom")}
                   type="radio"
-                  name="options"
+                  name="gender"
+                  checked={state.gender === "Custom"}
                 />
               </label>
             </div>
-            {gender === "Custom" && (
+            {state.gender === "Custom" && (
               <div>
                 <form>
                   <input
