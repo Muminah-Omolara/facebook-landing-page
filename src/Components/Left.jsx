@@ -5,8 +5,7 @@ export default function Left() {
     <div className={styles.left}>
       <div>
         <h1>facebook</h1>
-        <p>Facebook helps you connect and </p>
-        <p>share with the people in your life</p>
+        <p>Facebook helps you connect and share with the people in your life</p>
       </div>
     </div>
   );

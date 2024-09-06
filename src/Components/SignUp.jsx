@@ -100,12 +100,12 @@ export default function SignUp({ onBack }) {
               placeholder="New Password"
             />
             <form>
-              <p className={styles.dob}>Date of birth </p>
+              <p className={styles.dob}>Date of birth: </p>
               <label htmlFor="dob"></label>
               <input type="date" />
             </form>
 
-            <p className={styles.gender}>Gender</p>
+            <p className={styles.gender}>Gender:</p>
             <div className={styles.sex}>
               <label>
                 Female{" "}

@@ -96,3 +96,25 @@ a:hover {
   justify-content: space-evenly;
   margin-left: -100px;
 }
+
+@media (max-width: 700px) {
+  .email,
+  .password,
+  .firstName,
+  .surname,
+  .customGender,
+  select {
+    width: 200px;
+  }
+  .sex {
+    margin-left: 5px;
+    flex-direction: column;
+  }
+  p {
+    font-size: 14px;
+    font-weight: 300px;
+  }
+  .signUpBtn {
+    margin-left: 10px;
+  }
+}
