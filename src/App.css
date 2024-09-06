@@ -1,0 +1,14 @@
+#root {
+  max-width: 1280px;
+  margin-left: 20px;
+  /* margin: 0 auto; */
+}
+body {
+  background-color: rgb(235, 235, 252);
+  height: 100vh;
+}
+.logInPage {
+  display: flex;
+  justify-content: space-between;
+  place-items: center;
+}
