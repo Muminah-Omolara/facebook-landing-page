@@ -1,8 +1,16 @@
+.fblogo {
+  width: 50px;
+  margin-top: 50px;
+  margin-left: 200px;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  margin-bottom: -10px;
+}
+
 .right {
-  margin-left: 50px;
-  background-color: white;
+  margin-left: 40px;
   padding: 20px;
-  box-shadow: 0 4px 6px rgb(0, 0, 0, 0.5);
   border-radius: 5px;
   margin-top: 50px;
 }
@@ -13,10 +21,9 @@
   box-sizing: border-box;
   margin-bottom: 10px;
   border: 0.1px solid #d6e1f3;
-  border-radius: 5px;
+  border-radius: 15px;
   outline-color: rgb(72, 133, 247);
 }
-
 .logIn {
   background-color: #0866ff;
   text-align: center;
@@ -37,7 +44,6 @@
 .logIn:hover {
   background-color: #2b7bfa;
 }
-
 .forgotten:hover {
   text-decoration: underline;
 }
@@ -47,13 +53,17 @@
   margin-top: 10px;
   font-size: 20px;
 }
+.forgotten a {
+  color: black;
+}
+
 .createAcct:hover {
   background-color: rgb(2, 119, 2);
 }
 
 .createAcct {
   background-color: rgb(3, 160, 3);
-  border-radius: 8px;
+  border-radius: 24px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
   font-size: 1em;
@@ -61,37 +71,8 @@
   font-family: inherit;
   cursor: pointer;
   color: white;
-  margin-left: 140px;
-}
-.page p {
-  color: black;
-}
-.page {
-  text-align: center;
-  margin-top: 20px;
-}
-
-@media (max-width: 600px) {
-  .container {
-    max-width: 400px;
-    margin-right: 20px;
-  }
-  .email,
-  .password,
-  .logIn,
-  .createAcct {
-    width: 200px;
-  }
-  .forgotten {
-    margin-left: 10px;
-    font-size: 16px;
-    font-weight: 400;
-  }
-  .createAcct {
-    margin-left: 10px;
-  }
-  .page p {
-    font-size: 14px;
-    font-weight: 300;
-  }
+  margin-left: 100px;
+  margin-top: 50px;
+  width: 100%;
+  margin-left: 5px;
 }
